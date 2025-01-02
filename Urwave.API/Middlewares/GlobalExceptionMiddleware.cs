@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using Serilog;
+using System.Net;
 using Urwave.Application.Exceptions;
 using Urwave.Application.Resources;
 
@@ -41,6 +42,7 @@ public class GlobalExceptionMiddleware
 
         else
         {
+            Log.Error(exception, "An unhandled exception occurred while processing the request.");
             response = new ApiResponse
             {
                 IsSuccess = false,
