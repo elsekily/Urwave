@@ -1,0 +1,1 @@
+dotnet ef migrations add initialModel --project .\Urwave.DataAccess.csproj  --output-dir ./Persistence/Migrations --startup-project ..\Urwave.API\Urwave.API.csproj
