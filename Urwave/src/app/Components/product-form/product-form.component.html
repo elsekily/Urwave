@@ -1,0 +1,45 @@
+<div class="product-form rounded-lg shadow-lg">
+    <h2 class="text-2xl font-semibold mb-4">{{ productId ? 'Edit Product' : 'Add Product' }}</h2>
+
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <!-- Name Field -->
+        <div class="p-4">
+            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+            <input pInputText id="name" formControlName="name"
+                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2" />
+            <p-message *ngIf="productForm.get('name')?.hasError('required') && productForm.get('name')?.touched"
+                severity="error" text="Name is required." class="text-red-500 mt-2"></p-message>
+                <p-message *ngIf="productForm.get('name')?.hasError('maxlength') && productForm.get('name')?.touched"
+                    severity="error" text="Name cannot exceed 100 characters." class="text-red-500 mt-2"></p-message>
+        </div>
+
+        <!-- Description Field -->
+        <div class="p-4">
+            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+            <input pInputText id="description" formControlName="description"
+                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2" />
+            <p-message
+                *ngIf="productForm.get('description')?.hasError('required') && productForm.get('description')?.touched"
+                severity="error" text="Description is required." class="text-red-500 mt-2"></p-message>
+            <p-message
+                *ngIf="productForm.get('description')?.hasError('maxlength') && productForm.get('description')?.touched"
+                severity="error" text="Description cannot exceed 500 characters." class="text-red-500 mt-2"></p-message>
+        </div>
+
+        <!-- Price Field -->
+        <div class="p-4">
+            <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+            <input pInputText type="number" id="price" formControlName="price"
+                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2" />
+            <p-message *ngIf="productForm.get('price')?.hasError('required') && productForm.get('price')?.touched"
+                severity="error" text="Price is required." class="text-red-500 mt-2"></p-message>
+            <p-message *ngIf="productForm.get('price')?.hasError('min') && productForm.get('price')?.touched"
+                severity="error" text="Price must be a positive number." class="text-red-500 mt-2"></p-message>
+        </div>
+
+        <!-- Submit Button -->
+        <button pButton type="submit" [label]="productId ? 'Update' : 'Add'" [disabled]="productForm.invalid"
+            class="mt-4 ml-4 p-5 py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+        </button>
+    </form>
+</div>
