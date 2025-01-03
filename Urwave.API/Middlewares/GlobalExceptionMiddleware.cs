@@ -37,7 +37,7 @@ public class GlobalExceptionMiddleware
                 IsSuccess = false,
                 Message = exception.Message,
             };
-            context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+            context.Response.StatusCode = (int)HttpStatusCode.OK;
         }
 
         else

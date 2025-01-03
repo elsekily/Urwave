@@ -26,6 +26,6 @@ public class EditProductEndpoint : Endpoint<ProductRequest, ApiResponse>
         var id = Route<int>("id");
 
         var product = await productService.UpdateProduct(id,request);
-        await SendAsync(new ProductResponse(true,"",product), (int)HttpStatusCode.OK, ct);
+        await SendAsync(new ProductResponse(true,"Product Updated Successfully!",product), (int)HttpStatusCode.OK, ct);
     }
 }

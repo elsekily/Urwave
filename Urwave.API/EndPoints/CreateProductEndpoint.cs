@@ -26,7 +26,7 @@ public class CreateProductEndpoint : Endpoint<ProductRequest, ApiResponse>
     {
         var product = await productService.AddProduct(request);
         
-        await SendAsync(new ProductResponse(true,"",product),
+        await SendAsync(new ProductResponse(true,"Product Created Successfully!",product),
             (int)HttpStatusCode.Created
             ,ct);
     }

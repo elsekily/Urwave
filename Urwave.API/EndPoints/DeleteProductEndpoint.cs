@@ -25,6 +25,6 @@ public class DeleteProductEndpoint : EndpointWithoutRequest<ApiResponse>
         var id = Route<int>("id");
         await productService.DeleteProduct(id);
         
-        await SendAsync(new ApiResponse(true,"Product deleted successfully."), (int)HttpStatusCode.Accepted, ct);
+        await SendAsync(new ApiResponse(true,"Product Deleted Successfully!"), (int)HttpStatusCode.Accepted, ct);
     }
 }
