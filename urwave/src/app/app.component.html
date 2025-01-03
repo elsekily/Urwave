@@ -7,7 +7,7 @@
     <!-- Router Links -->
     <ul class="flex space-x-6">
       <li>
-        <a [routerLink]="'/products'" routerLinkActive="active" class="hover:underline p-ripple flex items-center">
+        <a [routerLink]="'/products'" routerLinkActive="active" class="p-button hover:underline p-ripple flex items-center">
           Products
           <span class="ripple-container"></span>
         </a>
@@ -21,3 +21,7 @@
     <router-outlet></router-outlet>
   </div>
 </main>
+
+<div *ngIf="loadingService.loading$ | async" class="overlay">
+  <p-progressSpinner></p-progressSpinner>
+</div>

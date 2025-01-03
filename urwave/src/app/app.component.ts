@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ButtonModule } from 'primeng/button';
+import { LoadingService } from './Services/LoadingService';
+
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,5 @@ import { ButtonModule } from 'primeng/button';
 })
 export class AppComponent {
   title = 'Urwave';
+  constructor(public loadingService: LoadingService) {}
 }

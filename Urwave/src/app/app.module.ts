@@ -16,10 +16,11 @@ import { ButtonModule } from 'primeng/button';
 import { MessageModule } from 'primeng/message';
 import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
-import { MessageService } from 'primeng/api';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { HttpErrorInterceptor } from './Services/Interceptor';
+import { HttpErrorInterceptor } from './interceptors/HttpError.interceptor';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { HttpErrorInterceptor } from './Services/Interceptor';
         preset: Aura
       }
     }),
-    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

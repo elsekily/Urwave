@@ -4,8 +4,7 @@ import { productResponse } from '../Models/productResponse';
 import { productsResponse } from '../Models/productsResponse';
 import { baseResponse } from '../Models/baseResponse';
 import { ProductRequest } from '../Models/ProductRequest';
-//import { environment } from '../../environments/environment';
-//import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,7 @@ export class ProductService {
 
    constructor(private http: HttpClient) { }
 
-  baseUrl = 'http://localhost:5077/' + 'products';
+  baseUrl = environment.apiUrl + 'products';
 
   create(product:ProductRequest) {
     return this.http.post<productResponse>(this.baseUrl, product);
