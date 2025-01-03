@@ -11,6 +11,7 @@ public class ProductsProfile : Profile
         CreateMap<Product, ProductResource>();
 
         CreateMap<ProductRequest, Product>()
-                        .ForMember(dest => dest.Id, opt => opt.Ignore());
+                        .ForMember(dest => dest.Id, opt => opt.Ignore())
+                        .ForMember(dest => dest.CreatedOn, opt => opt.Ignore());
     }
 }

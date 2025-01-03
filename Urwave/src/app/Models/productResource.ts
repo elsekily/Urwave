@@ -4,4 +4,5 @@ export interface productResource{
     name: string,
     description: string,
     price: number,
+    createdOn: string;
 }

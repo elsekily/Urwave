@@ -28,6 +28,8 @@ public class ProductService : IProductService
     public async Task<ProductResource> AddProduct(ProductRequest productRequst)
     {
         var product = mapper.Map<Product>(productRequst);
+        product.CreatedOn = DateTime.Now;
+
         product = await productRepository.AddAsync(product);
         await unitOfWork.CommitAsync();
 

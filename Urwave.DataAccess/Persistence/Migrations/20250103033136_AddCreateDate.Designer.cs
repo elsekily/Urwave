@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Urwave.DataAccess.Persistence;
 
@@ -11,9 +12,11 @@ using Urwave.DataAccess.Persistence;
 namespace Urwave.DataAccess.Persistence.Migrations
 {
     [DbContext(typeof(UrwaveDbContext))]
-    partial class UrwaveDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250103033136_AddCreateDate")]
+    partial class AddCreateDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

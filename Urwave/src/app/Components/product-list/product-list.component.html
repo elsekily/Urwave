@@ -29,6 +29,9 @@
             <th pSortableColumn="price" class="text-right">
                 Price <p-sortIcon field="price"></p-sortIcon>
             </th>
+            <th pSortableColumn="createdOn" class="text-right">
+                createdOn <p-sortIcon field="createdOn"></p-sortIcon>
+            </th>
             <th class="text-center">Actions</th>
         </tr>
     </ng-template>
@@ -43,6 +46,7 @@
             </td>
             <td>{{ product.description }}</td>
             <td class="text-right">{{ product.price | currency }}</td>
+            <td class="text-right">{{product.createdOn }}</td>
             <td class="text-center">
                 <button pButton type="button" icon="pi pi-trash" class="p-button-danger p-button-sm"
                     (click)="confirmDelete(product.id)">
