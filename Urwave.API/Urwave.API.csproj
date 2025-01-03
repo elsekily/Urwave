@@ -22,4 +22,8 @@
     <ProjectReference Include="..\Urwave.Application\Urwave.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

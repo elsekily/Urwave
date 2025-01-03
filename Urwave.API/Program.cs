@@ -44,6 +44,9 @@ app.UseFastEndpoints();
 app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseSerilogRequestLogging();
 
+app.UseStaticFiles();
+app.UseFileServer();
+
 
 await AutomatedMigration.MigrateAsync(app.Services);
 
